@@ -30,6 +30,12 @@ namespace CosmicCuration.Bullets
             return CreatePooledBullet();
         }
 
+        public void ReturnBulletToPool(BulletController returnedBullet)
+        {
+            PooledBullet pooledBullet = pooledbullets.Find(pooledBullet => pooledBullet.bulletController.Equals(returnedBullet));
+            pooledBullet.isUsed = false;
+        }
+
         public BulletController CreatePooledBullet()
         {
             PooledBullet pooledBullet = new PooledBullet();
