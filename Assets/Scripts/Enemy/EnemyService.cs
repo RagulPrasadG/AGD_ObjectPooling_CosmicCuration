@@ -9,6 +9,7 @@ namespace CosmicCuration.Enemy
         #region Dependencies
         private EnemyView enemyPrefab;
         private EnemyScriptableObject enemyScriptableObject;
+        private EnemyPool enemyPool;
         #endregion
 
         #region Variables
@@ -22,6 +23,7 @@ namespace CosmicCuration.Enemy
         {
             this.enemyPrefab = enemyPrefab;
             this.enemyScriptableObject = enemyScriptableObject;
+            this.enemyPool = new EnemyPool(enemyPrefab, enemyScriptableObject.enemyData);
             InitializeVariables();
         }
 
@@ -47,6 +49,12 @@ namespace CosmicCuration.Enemy
             }
         }
 
+        public void ReturnEnemyToPool(EnemyController enemyController)
+        {
+            enemyPool.ReturnEnemyToPool(enemyController);
+        }
+
+
         #region Spawning Enemies
         private void SpawnEnemy()
         {
@@ -59,7 +67,7 @@ namespace CosmicCuration.Enemy
 
         private void SpawnEnemyAtPosition(Vector2 spawnPosition, EnemyOrientation enemyOrientation)
         {
-            EnemyController spawnedEnemy = new EnemyController(enemyPrefab, enemyScriptableObject.enemyData);
+            EnemyController spawnedEnemy = enemyPool.GetEnemy();
             spawnedEnemy.Configure(spawnPosition, enemyOrientation);
         }
 
@@ -104,6 +112,7 @@ namespace CosmicCuration.Enemy
             else
                 currentSpawnRate = enemyScriptableObject.minimumSpawnRate;
         }
+
 
         private void ResetSpawnTimer() => spawnTimer = currentSpawnRate;
 
