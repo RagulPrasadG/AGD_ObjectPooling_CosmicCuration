@@ -22,6 +22,13 @@ public class GenericObjectPool<T> where T : class
 
     }
 
+    public void ReturnItemToPool(T item)
+    {
+        PooledObject<T> pooledObject = pooledItems.Find(i => i.Item.Equals(item));
+        pooledObject.isUsed = false;
+    }
+
+
     private T CreatePooledItem()
     {
         PooledObject<T> pooledItem = new PooledObject<T>();
