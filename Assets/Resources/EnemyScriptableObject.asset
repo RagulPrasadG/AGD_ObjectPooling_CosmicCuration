@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyScriptableObject
   m_EditorClassIdentifier: 
   spawnDistance: 2
-  initialSpawnRate: 3
+  initialSpawnRate: 5
   minimumSpawnRate: 0.5
   difficultyDelta: 0.05
   enemyData:
