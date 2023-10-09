@@ -51,6 +51,8 @@ MonoBehaviour:
     type: 3}
   enemyPrefab: {fileID: 427177731486789180, guid: 6ec805b0fd2b5fd42bd04a26e3c6754b,
     type: 3}
+  vfxPrefab: {fileID: 2674352075565639642, guid: c68733eb7fedaae4299ec0fea2f96c42,
+    type: 3}
   playerScriptableObject: {fileID: 11400000, guid: 27ad248a2a50333478d9ee1759b984d4,
     type: 2}
   playerBulletScriptableObject: {fileID: 11400000, guid: 5fc7909e8b873be46aa3f538af315af5,

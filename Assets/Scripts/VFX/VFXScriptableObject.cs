@@ -14,6 +14,6 @@ namespace CosmicCuration.VFX
     public class VFXData
     {
         public VFXType type;
-        public VFXView prefab;
+        public ParticleSystem particleSystem;
     }
 }
